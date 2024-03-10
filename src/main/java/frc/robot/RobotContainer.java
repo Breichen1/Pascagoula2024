@@ -11,6 +11,7 @@ import frc.robot.commands.LaunchNote;
 import frc.robot.commands.PrepareLaunch;
 import frc.robot.subsystems.CANDrivetrain;
 import frc.robot.subsystems.CANLauncher;
+import frc.robot.subsystems.Climber;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
@@ -26,6 +27,7 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final CANDrivetrain m_drivetrain = new CANDrivetrain();
   private final CANLauncher m_launcher = new CANLauncher();
+  private final Climber m_climber = new Climber();
 
   //Your controller may not be an Xbox controller, but this object should work no matter what.
   private final CommandXboxController m_driverController =
@@ -74,6 +76,10 @@ public class RobotContainer {
     // left Bumper
     m_operatorController.leftBumper().whileTrue(m_launcher.getIntakeCommand());
 
+    //Climber controls
+    m_operatorController.back().whileTrue(m_climber.Extend());
+    m_operatorController.start().whileTrue(m_climber.Climb());
+
   }
 
   /**
@@ -83,6 +89,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
-    return Autos.exampleAuto(m_drivetrain);
+    return Autos.exampleAuto(m_drivetrain, m_launcher);
   }
 }

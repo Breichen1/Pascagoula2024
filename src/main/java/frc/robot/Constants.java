@@ -15,9 +15,9 @@ package frc.robot;
 public final class Constants {
   public static class OperatorConstants {
     // Port numbers for driver and operator gamepads. These correspond with the numbers on the USB
-    // tab of the DriverStation
-    public static final int kDriverControllerPort = 0;
-    public static final int kOperatorControllerPort = 1;
+    // tab of the DriverStation TODO check these ports 
+    public static final int kDriverControllerPort = 1;
+    public static final int kOperatorControllerPort = 0;
   }
 
   public static class DrivetrainConstants {
@@ -31,7 +31,8 @@ public final class Constants {
 
   public static class LauncherConstants {
     // PWM ports/CAN IDs for motor controllers
-    //TODO: Set CAN IDs for these 2 sparkMax objects in Rev Hardware Client
+    // Set CAN IDs for these 2 sparkMax objects in Rev Hardware Client
+    //TODO check these are correct for front and back
     public static final int kFeederID = 5;
     public static final int kLauncherID = 6;
 
@@ -47,5 +48,15 @@ public final class Constants {
     public static final double kIntakeFeederSpeed = -.2;
 
     public static final double kLauncherDelay = 1;
+  }
+
+  public static class ClimberConstants {
+
+   //DIO port for the limit switch
+   public static final int switchPort = 0;
+
+   //CAN ID for the Climber VictorSPX Motor controller
+   public static final int climberID = 10;
+
   }
 }

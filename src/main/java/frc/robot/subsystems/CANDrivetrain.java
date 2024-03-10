@@ -38,7 +38,9 @@ public class CANDrivetrain extends SubsystemBase {
 
       // Invert the left side so both side drive forward with positive motor outputs
       leftFront.setInverted(true);
+      leftRear.setInverted(true);
       rightFront.setInverted(false);
+      rightRear.setInverted(false);
 
       // Put the front motors into the differential drive object. This will control all 4 motors with
       // the rears set to follow the fronts
